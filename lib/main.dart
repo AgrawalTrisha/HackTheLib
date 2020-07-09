@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hackthelib/pages/daily_page.dart';
+import 'package:hackthelib/widgets/journal_card.dart';
 
 void main() {
   runApp(MyApp());
@@ -13,16 +15,21 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.green,
-        textTheme: TextTheme(
+        fontFamily: "Kodchasan",
+        primaryTextTheme: TextTheme(
+          headline1: TextStyle(
+            fontWeight: FontWeight.w500,
+            fontSize: 36,
+            color: Colors.white
+          ),
           bodyText1: TextStyle(
-            fontFamily: "Kodchasan",
             fontWeight: FontWeight.w300,
-            fontSize: 24,
+            fontSize: 18,
             color: Colors.white
           )
         ),
         iconTheme: IconThemeData(
-          color: Colors.white,
+          color: Color(0xFF80B961),
           size: 50
         ),
         cardTheme: CardTheme(
