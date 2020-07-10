@@ -6,19 +6,24 @@ class JournalCard extends StatefulWidget {
 }
 
 class _JournalCardState extends State<JournalCard> {
-  TextEditingController _editingController;
-  FocusNode _focusNode;
+  TextEditingController _titleController;
+  TextEditingController _bodyController;
+  FocusNode _titleFocusNode;
+  FocusNode _bodyFocusNode;
 
   @override
   void initState() {
     super.initState();
-    _editingController = TextEditingController(text: "Journal entry here");
-    _focusNode = FocusNode();
+    _titleController = TextEditingController(text: "Journal title here");
+    _bodyController = TextEditingController(text: "Journal entry here");
+    _titleFocusNode = FocusNode();
+    _bodyFocusNode = FocusNode();
   }
 
   @override
   void dispose() {
-    _editingController.dispose();
+    _titleController.dispose();
+    _bodyController.dispose();
     super.dispose();
   }
 
@@ -27,14 +32,27 @@ class _JournalCardState extends State<JournalCard> {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: EditableText(
-          controller: _editingController,
-          focusNode: _focusNode,
-          style: Theme.of(context).primaryTextTheme.bodyText1,
-          cursorColor: Colors.white,
-          backgroundCursorColor: Colors.green,
-          minLines: null,
-          maxLines: null,
+        child: Column(
+          children: [
+            EditableText(
+            controller: _titleController,
+            focusNode: _titleFocusNode,
+            style: Theme.of(context).primaryTextTheme.headline2,
+            cursorColor: Colors.white,
+            backgroundCursorColor: Colors.green,
+            minLines: null,
+            maxLines: null,
+          ),
+            EditableText(
+              controller: _bodyController,
+              focusNode: _bodyFocusNode,
+              style: Theme.of(context).primaryTextTheme.bodyText1,
+              cursorColor: Colors.white,
+              backgroundCursorColor: Colors.green,
+              minLines: null,
+              maxLines: null,
+            ),
+          ],
         ),
       ),
     );

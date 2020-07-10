@@ -29,7 +29,7 @@ class _MoodCardState extends State<MoodCard> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          IconButton(onPressed: () {_askedToLead();}, iconSize: 50, icon: Icon(icon, color: Colors.white)),
+          IconButton(onPressed: () {_moodSelector();}, iconSize: 50, icon: Icon(icon, color: Colors.white)),
           Expanded(
             child: EditableText(
               controller: _editingController,
@@ -45,7 +45,7 @@ class _MoodCardState extends State<MoodCard> {
       ),
     );
   }
-  Future<void> _askedToLead() async {
+  Future<void> _moodSelector() async {
     switch (await showDialog<String>(
         context: context,
         builder: (BuildContext context) {

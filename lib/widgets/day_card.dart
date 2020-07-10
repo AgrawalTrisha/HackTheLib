@@ -7,11 +7,9 @@ class DayCard extends StatelessWidget {
   const DayCard({this.day, this.date});
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Text("Day $day: ${_getMonth(date.month)} ${date.day}, ${date.year}", style: Theme.of(context).primaryTextTheme.headline1,),
-      )
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Text("Day $day: ${_getMonth(date.month)} ${date.day}, ${date.year}", style: Theme.of(context).primaryTextTheme.headline1,),
     );
   }
 }
