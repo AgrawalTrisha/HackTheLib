@@ -4,6 +4,7 @@ import 'package:hackthelib/pages/daily_page.dart';
 import 'package:hackthelib/pages/food_page.dart';
 import 'package:hackthelib/pages/journal_page.dart';
 import 'package:hackthelib/pages/mood_page.dart';
+import 'package:hackthelib/pages/home_page.dart';
 import 'package:hackthelib/widgets/journal_card.dart';
 
 void main() {
@@ -25,26 +26,25 @@ class MyApp extends StatelessWidget {
           headline2: TextStyle(fontWeight: FontWeight.w500, fontSize: 24, color: Colors.white),
           bodyText1: TextStyle(fontWeight: FontWeight.w300, fontSize: 18, color: Colors.white),
         ),
-        iconTheme: IconThemeData(color: Color(0xFF80B961), size: 50),
         cardTheme: CardTheme(color: Color(0xFFa6cd92), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)), elevation: 8),
       ),
-      home: HomeView(),
+      home: OpeningPage(),
     );
   }
 }
 
-class HomeView extends StatefulWidget {
+class OpeningPage extends StatefulWidget {
   @override
-  _HomeViewState createState() => _HomeViewState();
+  _OpeningPageState createState() => _OpeningPageState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _OpeningPageState extends State<OpeningPage> {
   int pageNum = 1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      drawerEdgeDragWidth: MediaQuery.of(context).size.width,
       body: _getPage(pageNum),
       drawer: Container(
         color: Colors.white,
@@ -55,7 +55,7 @@ class _HomeViewState extends State<HomeView> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: IconButton(
-                icon: Icon(Icons.calendar_today),
+                icon: Icon(Icons.calendar_today, color: Color(0xFFffae42),),
                 onPressed: () {
                   setState(() {
                     pageNum = 1;
@@ -67,7 +67,7 @@ class _HomeViewState extends State<HomeView> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: IconButton(
-                icon: Icon(Icons.local_florist),
+                icon: Icon(Icons.local_florist, color: Color(0xffff9505)),
                 onPressed: () {
                   setState(() {
                     pageNum = 2;
@@ -79,7 +79,7 @@ class _HomeViewState extends State<HomeView> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: IconButton(
-                icon: Icon(Icons.book),
+                icon: Icon(Icons.book, color: Color(0xFFf87a1d),),
                 onPressed: () {
                   setState(() {
                     pageNum = 3;
@@ -91,7 +91,7 @@ class _HomeViewState extends State<HomeView> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: IconButton(
-                icon: Icon(Icons.mood),
+                icon: Icon(Icons.mood, color: Color(0xFFf2672c),),
                 onPressed: () {
                   setState(() {
                     pageNum = 4;
@@ -109,7 +109,7 @@ class _HomeViewState extends State<HomeView> {
   Widget _getPage(int pageNum) {
     switch (pageNum) {
       case 1:
-        return DailyPage();
+        return HomePage();
       case 2:
         return FoodPage();
       case 3:
