@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hackthelib/pages/daily_page.dart';
+import 'package:hackthelib/pages/body_page.dart';
 import 'package:hackthelib/pages/food_page.dart';
 import 'package:hackthelib/pages/journal_page.dart';
 import 'package:hackthelib/pages/mood_page.dart';
 import 'package:hackthelib/pages/home_page.dart';
-import 'package:hackthelib/widgets/journal_card.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,11 +21,14 @@ class MyApp extends StatelessWidget {
         backgroundColor: Color(0xFFf2f4f3),
         fontFamily: "Kodchasan",
         primaryTextTheme: TextTheme(
-          headline1: TextStyle(fontWeight: FontWeight.w500, fontSize: 36, color: Color(0xFF80B961)),
-          headline2: TextStyle(fontWeight: FontWeight.w500, fontSize: 24, color: Colors.white),
-          bodyText1: TextStyle(fontWeight: FontWeight.w300, fontSize: 18, color: Colors.white),
+          headline1: TextStyle(fontWeight: FontWeight.w400, fontSize: 36, color: Color(0xFFf2672c)),
+          headline2: TextStyle(fontWeight: FontWeight.w500, fontSize: 24, color: Color(0xFFf2672c)),
+          bodyText1: TextStyle(fontWeight: FontWeight.w200, fontSize: 18, color: Color(0xFFf2672c)),
         ),
-        cardTheme: CardTheme(color: Color(0xFFa6cd92), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)), elevation: 8),
+        iconTheme: IconThemeData(
+          color: Color(0xFFf2672c)
+        ),
+        cardTheme: CardTheme(color: Colors.white, shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)), elevation: 8),
       ),
       home: OpeningPage(),
     );
@@ -100,6 +102,18 @@ class _OpeningPageState extends State<OpeningPage> {
                 },
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: IconButton(
+                icon: Icon(Icons.accessibility_new, color: Color(0xFFf2672c),),
+                onPressed: () {
+                  setState(() {
+                    pageNum = 5;
+                  });
+                  Navigator.pop(context);
+                },
+              ),
+            ),
           ],
         ),
       ),
@@ -116,6 +130,8 @@ class _OpeningPageState extends State<OpeningPage> {
         return JournalPage();
       case 4:
         return MoodPage();
+      case 5:
+        return BodyPage();
     }
   }
 }
